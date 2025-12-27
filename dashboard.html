@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Vision Gym Fitness House</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .cta-button { transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: #2dd4bf; }
+        .active-nav-link { color: #2dd4bf; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+    <nav class="bg-gray-800/80 backdrop-blur-md shadow-lg fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-teal-400">Gym<span class="text-white">Fitness</span>House</a>
+            <div class="hidden md:flex items-center space-x-4" id="nav-links">
+                <a href="index.html" class="nav-link hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium" data-page="index.html">Home</a>
+                <span id="user-greeting" class="text-gray-300 px-3 py-2 text-sm"></span>
+            </div>
+            <div class="md:hidden flex items-center">
+                <span id="user-greeting-mobile" class="text-gray-300 mr-2 text-sm"></span>
+                <button id="mobile-menu-button" class="text-gray-200 hover:text-teal-400 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
+            <a href="index.html" class="block nav-link hover:text-teal-400 px-4 py-2 text-sm" data-page="index.html">Home</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto px-6 py-12 pt-32">
+        <div id="dashboard-content" class="bg-gray-800 p-8 rounded-lg shadow-xl">
+            <h1 class="text-3xl font-bold text-teal-400 mb-6">Welcome to Your Dashboard</h1>
+            <p class="text-gray-300 mb-4">This is your personal space. Here you can manage your account, view your progress, and access exclusive content.</p>
+            
+            <div id="membership-info" class="mb-8 p-6 bg-gray-700 rounded-lg">
+                <h2 class="text-2xl font-semibold text-teal-400 mb-3">Your Membership</h2>
+                <p id="user-plan" class="text-gray-300">Loading your plan details...</p>
+                <button id="manage-subscription-button" class="mt-4 cta-button bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg text-sm">
+                    Manage Subscription
+                </button>
+                <div id="payment-status-message" class="mt-4 text-center text-base font-semibold"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-teal-400 mb-2"><i class="fas fa-calendar-alt mr-2"></i>Class Schedule</h3>
+                    <p class="text-gray-400">View upcoming classes and book your spot.</p>
+                    <a href="classes.html" class="inline-block mt-3 text-teal-500 hover:text-teal-300 font-medium">View Classes <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-teal-400 mb-2"><i class="fas fa-chart-line mr-2"></i>Track Progress</h3>
+                    <p class="text-gray-400">Log your workouts and see your improvements. (Feature coming soon!)</p>
+                </div>
+            </div>
+            
+            <!-- Updated Payment Section for CBE Transfer -->
+            <div id="dashboard-payment-section" class="mt-10 hidden">
+                <h2 class="text-2xl font-semibold text-teal-400 mb-4">Complete Your Membership Payment</h2>
+                <div class="bg-gray-700 p-8 rounded-lg shadow-xl">
+                    <p class="mb-4 text-gray-200">
+                        Please send your membership payment to the following CBE account using your phone. After completing the payment, enter your transaction ID below for verification.
+                    </p>
+                    <div class="mb-6 p-4 bg-gray-800 rounded-lg text-center">
+                        <span class="block text-lg text-gray-300 mb-2 font-semibold">CBE Account Number</span>
+                        <span class="block text-2xl font-bold text-teal-400 select-all">1000123456789</span>
+                        <span class="block text-sm text-gray-400 mt-2">Account Name: Gym Fitness House</span>
+                    </div>
+                    <form id="dashboard-payment-form">
+                        <div class="mb-4">
+                            <label for="dash-selected-plan" class="block text-sm font-medium text-gray-300 mb-1">Selected Plan</label>
+                            <input type="text" id="dash-selected-plan" name="selected-plan" class="w-full p-3 rounded-md bg-gray-600 text-gray-200 border border-gray-500 focus:ring-2 focus:ring-teal-500 focus:border-teal-500" readonly>
+                        </div>
+                        <div class="mb-4">
+                            <label for="dash-transaction-id" class="block text-sm font-medium text-gray-300 mb-1">Transaction ID</label>
+                            <input type="text" id="dash-transaction-id" name="transaction-id" class="w-full p-3 rounded-md bg-gray-600 text-gray-200 border border-gray-500 focus:ring-2 focus:ring-teal-500 focus:border-teal-500" required placeholder="Enter your CBE transaction ID">
+                        </div>
+                        <button type="submit" class="w-full cta-button bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-lg text-lg">
+                            Submit Transaction ID
+                        </button>
+                    </form>
+                    <p id="dashboard-payment-message" class="mt-4 text-center"></p>
+                </div>
+            </div>
+            <!-- End Payment Section -->
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-700 py-12 mt-auto">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <div class="mb-4">
+                <a href="index.html" class="text-xl font-bold text-teal-400">Vision<span class="text-white">Gym</span>Fitness House</a>
+            </div>
+            <p class="text-sm">&copy; <span id="current-year"></span> Vision Gym Fitness House. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+/* style.css */
+/* You can add custom CSS rules here to complement or override Tailwind CSS. */
+/* For this example, most styling is done via Tailwind classes in the HTML. */
+/* However, you might want to add global styles or specific component styles here. */
+
+body {
+    /* font-family: 'Inter', sans-serif; /* Already set in HTML via <style> for quick load */
+    /* background-color: #111827; /* Tailwind bg-gray-900 */
+    /* color: #f3f4f6; /* Tailwind text-gray-100 */
+    scroll-behavior: smooth; /* Ensures smooth scrolling for anchor links */
+}
+
+/* Example of a custom style you might add */
+.custom-gradient-text {
+    background: linear-gradient(to right, #34d399, #2dd4bf); /* Teal gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Navigation active link style is defined in <style> tags in HTML for immediate effect,
+   but could be moved here if preferred.
+   .active-nav-link {
+       color: #2dd4bf; /* Tailwind teal-400 */
+/* font-weight: 600;
+   }
+*/
+
+/* Ensuring Font Awesome icons are sized appropriately if needed */
+.fas, .fab {
+    line-height: inherit; /* Helps with vertical alignment */
+}
+
+/* Additional button styling (can extend Tailwind) */
+/* .cta-button is already styled in individual HTML files' <style> block for hover effects */
+
+
+/* Styling for form messages (success/error) */
+.form-message {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem; /* rounded-md */
+    font-size: 0.875rem; /* text-sm */
+    text-align: center;
+}
+
+.form-message-success {
+    background-color: #059669; /* Tailwind green-700 for better contrast on dark bg */
+    color: #d1fae5; /* Tailwind green-100 */
+    border: 1px solid #065f46; /* Tailwind green-800 */
+}
+
+.form-message-error {
+    background-color: #b91c1c; /* Tailwind red-700 for better contrast */
+    color: #fee2e2; /* Tailwind red-100 */
+    border: 1px solid #7f1d1d; /* Tailwind red-800 */
+}
+
+/* Section title underline style (already in HTML <style>, but could be defined here) */
+/*
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #2dd4bf; // teal-400
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+*/
+
+/* Responsive iframe for potential map embeds */
+.responsive-iframe-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.responsive-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Custom scrollbar (optional, for aesthetics - browser support varies) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937; /* bg-gray-800 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #374151; /* bg-gray-700 */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4b5563; /* bg-gray-600 */
+}

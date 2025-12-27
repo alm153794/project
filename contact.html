@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - VisionGym Fitness House</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: #2dd4bf; }
+        .active-nav-link { color: #2dd4bf; font-weight: 600; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background-color: #2dd4bf; margin: 10px auto 0; border-radius: 2px; }
+        .cta-button { transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <nav class="bg-gray-800/80 backdrop-blur-md shadow-lg fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-teal-400">Vision Gym<span class="text-white">Fitness</span>House</a>
+            <div class="hidden md:flex space-x-4 items-center" id="nav-links">
+                <a href="index.html" class="nav-link hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium" data-page="index.html">Home</a>
+                <a href="about.html" class="nav-link hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium" data-page="about.html">About Us</a>
+                <a href="classes.html" class="nav-link hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium" data-page="classes.html">Classes</a>
+                <a href="pricing.php" class="nav-link hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium" data-page="pricing.php">Pricing</a>
+                <a href="contact.html" class="nav-link hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium" data-page="contact.html">Contact</a>
+                </div>
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-200 hover:text-teal-400 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
+            <a href="index.html" class="block nav-link hover:text-teal-400 px-4 py-2 text-sm" data-page="index.html">Home</a>
+            <a href="about.html" class="block nav-link hover:text-teal-400 px-4 py-2 text-sm" data-page="about.html">About Us</a>
+            <a href="classes.html" class="block nav-link hover:text-teal-400 px-4 py-2 text-sm" data-page="classes.html">Classes</a>
+            <a href="pricing.php" class="block nav-link hover:text-teal-400 px-4 py-2 text-sm" data-page="pricing.php">Pricing</a>
+            <a href="contact.html" class="block nav-link hover:text-teal-400 px-4 py-2 text-sm" data-page="contact.html">Contact</a>
+            </div>
+    </nav>
+
+    <main>
+        <section id="contact" class="py-16 md:py-24 bg-gray-800 pt-32">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12">Get In <span class="text-teal-400">Touch</span></h2>
+                <div class="flex flex-col lg:flex-row gap-10">
+                    <div class="lg:w-2/3 bg-gray-900 p-8 rounded-lg shadow-xl">
+                        <h3 class="text-2xl font-semibold text-white mb-6">Send Us a Message</h3>
+                        <form id="contact-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                                    <input type="text" id="name" name="name" required class="w-full p-3 rounded-md bg-gray-700 text-gray-200 border border-gray-600 focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="Your Name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+                                    <input type="email" id="email" name="email" required class="w-full p-3 rounded-md bg-gray-700 text-gray-200 border border-gray-600 focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="you@example.com">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Subject</label>
+                                <input type="text" id="subject" name="subject" required class="w-full p-3 rounded-md bg-gray-700 text-gray-200 border border-gray-600 focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="Regarding Membership">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full p-3 rounded-md bg-gray-700 text-gray-200 border border-gray-600 focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="Your message..."></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="cta-button bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-lg text-lg">
+                                    Send Message
+                                </button>
+                            </div>
+                            <p id="contact-form-message" class="mt-4 text-center"></p>
+                        </form>
+                    </div>
+                    <div class="lg:w-1/3 bg-gray-900 p-8 rounded-lg shadow-xl">
+                        <h3 class="text-2xl font-semibold text-white mb-6">Contact Information</h3>
+                        <div class="space-y-4 text-gray-300">
+                            <p><i class="fas fa-map-marker-alt fa-fw text-teal-400 mr-2"></i>DEBREMARKOS</p>
+                            <p><i class="fas fa-phone fa-fw text-teal-400 mr-2"></i>+251964187714</p>
+                            <p><i class="fas fa-envelope fa-fw text-teal-400 mr-2"></i>info@visiongymfitnesshouse.com</p>
+                            <p><i class="fas fa-clock fa-fw text-teal-400 mr-2"></i>Mon - Fri: 6 AM - 10 PM</p>
+                            <p class="ml-7">Sat - Sun: 8 AM - 8 PM</p>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-xl font-semibold text-white mb-3">Find Us Here</h4>
+                            <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border border-gray-700">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.158492050095!2d37.735365!3d10.340753900000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164fbb61e5a6fa77%3A0x9705174accf57117!2sVision%20Fitness%20Gym%20House!5e1!3m2!1sen!2set!4v1742026437362!5m2!1sen!2set" 
+                                    width="100%" 
+                                    height="250" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy"
+                                    title="Gym Location Map">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-700 py-12">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <div class="mb-4">
+                <a href="index.html" class="text-xl font-bold text-teal-400">Gym<span class="text-white">Fitness</span>House</a>
+            </div>
+            <div class="space-x-4 mb-4">
+                 <a href="#" class="hover:text-teal-400" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-teal-400" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-teal-400" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-teal-400" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="text-sm">&copy; <span id="current-year"></span> Vision Gym Fitness House. All Rights Reserved.</p>
+             <p class="text-xs mt-2">Designed with <i class="fas fa-heart text-red-500"></i> & Tailwind CSS</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
