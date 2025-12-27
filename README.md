@@ -3,11 +3,32 @@
 A comprehensive web-based system for managing a gym, including user memberships, payments, and administrative tasks.
 
 ## Features
-- **User Panel**: Sign up, view plans, manage profile.
-- **Admin Panel**: Manage users, payments, plans, and messages.
-- **Responsive Design**: Built with Tailwind CSS.
 
-## Setup
-1. Import `sql.txt` into your MySQL database.
-2. Configure `db_config.php` if necessary.
-3. Deploy to a PHP server.
+- **User Authentication**: Secure login and registration for members and admins
+- **Membership Management**: Browse and subscribe to different gym plans
+- **Payment Tracking**: Record and monitor payment status and history
+- **Admin Dashboard**: Manage users, view payments, and handle inquiries
+- **Messaging System**: Users can send messages/inquiries to administration
+- **Plan Management**: Dynamic pricing and description for membership tiers
+
+## Technology Stack
+
+- **Backend**: PHP
+- **Database**: MySQL
+- **Frontend**: HTML, CSS, JavaScript
+- **Server**: Apache / Nginx
+
+## Database Setup
+
+1. Install MySQL Server
+2. Run the `sql.txt` script to create the database and tables
+3. Configure database connection in `db_config.php`
+4. Default Database Name: `gym_fitness_house_db`
+
+## Installation
+
+1. Clone the project to your web server root (e.g., htdocs or www)
+2. Import the database schema using `sql.txt`
+3. Verify credentials in `db_config.php`
+4. Access the application via browser (e.g., `http://localhost/phpass`)
+
